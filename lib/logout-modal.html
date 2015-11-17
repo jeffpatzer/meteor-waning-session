@@ -1,0 +1,18 @@
+<template name="waningSessionLogoutModal">
+  <div class="modal fade" id="logoutModal" data-backdrop="static">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h4 class="modal-title">Logging out in {{$.Session.get 'waningSessionModalTimeoutTime'}} seconds</h4>
+        </div>
+
+        <div class="modal-body">
+          <p>Would you like to remain logged in?</p>
+          <button type="button" class="btn btn-default" id="stay-logged-in">Yes. Keep me logged in.</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</template>
