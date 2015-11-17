@@ -39,7 +39,7 @@ Meteor.startup(function(){
   });
 
 
-  Template.logoutModal.onRendered(function(){
+  Template.waningSessionLogoutModal.onRendered(function(){
     $("#stay-logged-in").on('click',function(e){
       activityDetected = new moment();
       modalOpen=false;

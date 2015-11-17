@@ -25,7 +25,7 @@ You can configure the following options for timeout and
 Include the following template somewhere that is accessible across the setInterval
 
 ```
-{{> logoutModal}}
+{{> waningSessionLogoutModal}}
 ```
 
 Requires a bootstrap modal package in order to work. There are quite a few options that can be used.
