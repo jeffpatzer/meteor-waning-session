@@ -14,6 +14,7 @@ Meteor.startup(function(){
   var activityDetected = new moment();
   var hasBootstrap = (typeof $().modal == 'function');
   var modalOpen = false;
+  var modalOpenTime;
   Session.set("waningSessionModalTimeoutTime", waningSessionModalTimeout)
 
   Meteor.setInterval(function() {
@@ -30,14 +31,17 @@ Meteor.startup(function(){
     if (isOutOfBounds && !modalOpen) {
       $("#logoutModal").modal('show');
       modalOpen = true;
+      modalOpenTime = new moment();
+      Session.set("waningSessionModalTimeoutTime", waningSessionModalTimeout);
     }else
     if (modalOpen){
       Session.set("waningSessionModalTimeoutTime", Session.get("waningSessionModalTimeoutTime")-1);
       var modalTimeBehind = moment().subtract(waningSessionModalTimeout, 'seconds');
-      var isAfterModalLogout = modalTimeBehind.isAfter(activityDetected);
+      var isAfterModalLogout = modalTimeBehind.isAfter(modalOpenTime);
       if (debug){
         console.log("Waning Session - Modal open");
         console.log("[WS] "+modalTimeBehind.toDate());
+        console.log("[WS] "+modalOpenTime.toDate());
         console.log("[WS] "+activityDetected.toDate());
       }
       if (isAfterModalLogout){
