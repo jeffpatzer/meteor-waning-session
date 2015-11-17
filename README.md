@@ -35,6 +35,16 @@ Requires a bootstrap modal package in order to work. There are quite a few optio
 
 Some inspiration taken from (stale-session)[https://github.com/lindleycb/meteor-stale-session].
 
+To use debug output
+
+```
+{
+  "public": {
+    waningSessionDebug: true
+  }
+}
+```
+
 _TODO_
 
 * Configure timeout based on roles using (meteor-roles package)[https://github.com/alanning/meteor-roles]
