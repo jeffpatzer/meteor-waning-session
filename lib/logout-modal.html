@@ -4,12 +4,29 @@
       <div class="modal-content">
 
         <div class="modal-header">
-          <h4 class="modal-title">Logging out in {{$.Session.get 'waningSessionModalTimeoutTime'}} seconds</h4>
+          <h4 class="modal-title">
+          {{#if title}}
+            {{title}} ({{$.Session.get 'waningSessionModalTimeoutTime'}} seconds)
+          {{else}}
+          Logging out in {{$.Session.get 'waningSessionModalTimeoutTime'}} seconds
+          {{/if}}
+          </h4>
         </div>
 
         <div class="modal-body">
+          {{#if Template.contentBlock}}
+          {{> Template.contentBlock}}
+          {{else}}
+          <p>For security reasons, you will be automatically logged out.</p>
           <p>Would you like to remain logged in?</p>
-          <button type="button" class="btn btn-default" id="stay-logged-in">Yes. Keep me logged in.</button>
+          {{/if}}
+          <button type="button" class="btn btn-default" id="stay-logged-in">
+            {{#if button}}
+              {{button}}
+            {{else}}
+              Yes. Keep me logged in.
+            {{/if}}
+          </button>
         </div>
 
       </div>

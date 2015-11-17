@@ -1,6 +1,6 @@
 Package.describe({
   name: 'jeffpatzer:waning-session',
-  version: '0.0.2_6',
+  version: '0.0.3',
   // Brief, one-line summary of the package.
   summary: 'Log the user out after a specified period of inactivity. All done within the browser.',
   // URL to the Git repository containing the source code for this package.

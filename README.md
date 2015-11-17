@@ -17,6 +17,7 @@ You can configure the following options for timeout and
 {
   "public": {
     "waningInactivityTimeout": 1200, // seconds
+    "waningSessionModalTimeout": 60, // seconds
     "waningActivityEvents": "mousemove click keydown touchstart"
   }
 }
@@ -27,6 +28,15 @@ Include the following template somewhere that is accessible across the setInterv
 ```
 {{> waningSessionLogoutModal}}
 ```
+
+You can customize the modal with the following attributes
+
+```
+{{#waningSessionLogoutModal title="Your Title" button="Your Button Text"}}
+  <p>Content Block</p>
+{{/waningSessionLogoutModal}}
+```
+Otherwise defaults are used.
 
 Requires a bootstrap modal package in order to work. There are quite a few options that can be used.
 
@@ -44,6 +54,7 @@ To use debug output
   }
 }
 ```
+
 
 _TODO_
 
