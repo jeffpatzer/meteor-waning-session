@@ -16,7 +16,7 @@ You can configure the following options for timeout and
 ```json
 {
   "public": {
-    "waningInactivityTimeout": 60,
+    "waningInactivityTimeout": 1200, // seconds
     "waningActivityEvents": "mousemove click keydown touchstart"
   }
 }

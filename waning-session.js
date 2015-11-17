@@ -1,6 +1,6 @@
 Meteor.startup(function(){
   var heartbeatInterval = Meteor.settings && Meteor.settings.public && Meteor.settings.public.waningInactivityTimeout || 60*20; // 20 minutes
-  var modalTimeout = heartbeatInterval + (Meteor.settings && Meteor.settings.public && Meteor.settings.public.waningInactivityTimeout || 60); // 60 seconds
+  var modalTimeout = heartbeatInterval + (Meteor.settings && Meteor.settings.public && Meteor.settings.public.modalTimeout || 60); // 60 seconds
   var activityEvents = Meteor.settings && Meteor.settings.public && Meteor.settings.public.waningActivityEvents || 'mousemove click keydown touchstart';
   var activityDetected = new moment();
   var hasBootstrap = (typeof $().modal == 'function');
@@ -10,6 +10,9 @@ Meteor.startup(function(){
   Meteor.setInterval(function() {
     var timeBehind = moment().subtract(heartbeatInterval, 'seconds');
     var isOutOfBounds = timeBehind.isAfter(activityDetected);
+    console.log("Checking user activity.");
+    console.log(timeBehind);
+    console.log(activityDetected);
 
     if (!Meteor.userId()){return;}
 
