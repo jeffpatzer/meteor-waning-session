@@ -1,6 +1,6 @@
 Meteor.startup(function(){
   var heartbeatInterval = Meteor.settings && Meteor.settings.public && Meteor.settings.public.waningInactivityTimeout || 60*20; // 20 minutes
-  var waningSessionModalTimeout = heartbeatInterval + (Meteor.settings && Meteor.settings.public && Meteor.settings.public.waningSessionModalTimeout || 60); // 60 seconds
+  var waningSessionModalTimeout = Meteor.settings && Meteor.settings.public && Meteor.settings.public.waningSessionModalTimeout || 60; // 60 seconds
   var activityEvents = Meteor.settings && Meteor.settings.public && Meteor.settings.public.waningActivityEvents || 'mousemove click keydown touchstart';
   var debug = Meteor.settings && Meteor.settings.public && Meteor.settings.public.waningSessionDebug || false;
 
