@@ -33,7 +33,7 @@ You can customize the modal with the following attributes
 
 ```
 {{#waningSessionLogoutModal title="Your Title" button="Your Button Text"}}
-  <p>Content Block</p>
+  <p>Content Block</p
 {{/waningSessionLogoutModal}}
 ```
 Otherwise defaults are used.
