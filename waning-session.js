@@ -22,7 +22,6 @@ Meteor.startup(function(){
   ReactiveLocalStorage("closeWSMOdal", false)
 
   Tracker.autorun(function () {
-    console.log(ReactiveLocalStorage('waningSessionLogMeOut')) // reactivly log localStorage['key'] to the console.
     activityDetected = ReactiveLocalStorage('WSActivity', new Date());
     if (ReactiveLocalStorage('waningSessionLogMeOut')===true){
       $(".modal").removeClass("fade").modal("hide").addClass("fade");
@@ -36,9 +35,6 @@ Meteor.startup(function(){
       modalOpen=false;
       ReactiveLocalStorage("closeWSMOdal", false)
     }
-    // if (ReactiveLocalStorage('WSActivity')===true){
-    //   activityDetected = new Moment();
-    // }
   });
 
   Meteor.setInterval(function() {
@@ -50,7 +46,6 @@ Meteor.startup(function(){
       console.log("[WS] Exempt Roles: "+masterRoles);
       console.log("[WS] "+timeBehind.toDate());
       console.log("[WS] "+activityDetected);
-      // console.log("[WS] "+activityDetected.toDate());
     }
 
     if (!Meteor.userId()){return;}
@@ -75,7 +70,6 @@ Meteor.startup(function(){
         console.log("[WS] "+modalTimeBehind.toDate());
         console.log("[WS] "+modalOpenTime.toDate());
         console.log("[WS] "+activityDetected);
-        // console.log("[WS] "+activityDetected.toDate());
       }
       if (isAfterModalLogout){
         modalOpen=false;
@@ -96,13 +90,11 @@ Meteor.startup(function(){
   //
   $(document).on(activityEvents, function() {
     ReactiveLocalStorage('WSActivity', new Date());
-    // ReactiveLocalStorage('WSActivity', true);
   });
 
 
   Template.waningSessionLogoutModal.onRendered(function(){
     $("#stay-logged-in").on('click',function(e){
-      // activityDetected = new moment();
       $("#logoutModal").modal('hide');
       activityDetected = ReactiveLocalStorage('WSActivity', new Date());
       ReactiveLocalStorage("closeWSMOdal", true);
