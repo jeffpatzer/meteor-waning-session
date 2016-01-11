@@ -18,7 +18,8 @@ You can configure the following options for timeout and
   "public": {
     "waningInactivityTimeout": 1200, // seconds
     "waningSessionModalTimeout": 60, // seconds
-    "waningActivityEvents": "mousemove click keydown touchstart"
+    "waningActivityEvents": "mousemove click keydown touchstart",
+    "waningMasterRoles": "dontLogOutThisRole"
   }
 }
 ```
